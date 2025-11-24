@@ -1,0 +1,315 @@
+<style>
+.lx-highlight { position: relative; border-radius:3px; padding:1px 2px;}
+.lx-highlight .lx-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  background: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 4px;
+  padding: 6px 8px;
+  position: absolute;
+  z-index: 1000;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  max-width: 240px;
+  white-space: normal;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.lx-highlight:hover .lx-tooltip { visibility: visible; opacity:1; }
+.lx-animated-wrapper { max-width: 100%; font-family: Arial, sans-serif; }
+.lx-controls {
+  background: #fafafa; border: 1px solid #90caf9; border-radius: 8px;
+  padding: 12px; margin-bottom: 16px;
+}
+.lx-button-row {
+  display: flex; justify-content: center; gap: 8px; margin-bottom: 12px;
+}
+.lx-control-btn {
+  background: #4285f4; color: white; border: none; border-radius: 4px;
+  padding: 8px 16px; cursor: pointer; font-size: 13px; font-weight: 500;
+  transition: background-color 0.2s;
+}
+.lx-control-btn:hover { background: #3367d6; }
+.lx-progress-container {
+  margin-bottom: 8px;
+}
+.lx-progress-slider {
+  width: 100%; margin: 0; appearance: none; height: 6px;
+  background: #ddd; border-radius: 3px; outline: none;
+}
+.lx-progress-slider::-webkit-slider-thumb {
+  appearance: none; width: 18px; height: 18px; background: #4285f4;
+  border-radius: 50%; cursor: pointer;
+}
+.lx-progress-slider::-moz-range-thumb {
+  width: 18px; height: 18px; background: #4285f4; border-radius: 50%;
+  cursor: pointer; border: none;
+}
+.lx-status-text {
+  text-align: center; font-size: 12px; color: #666; margin-top: 4px;
+}
+.lx-text-window {
+  font-family: monospace; white-space: pre-wrap; border: 1px solid #90caf9;
+  padding: 12px; max-height: 260px; overflow-y: auto; margin-bottom: 12px;
+  line-height: 1.6;
+}
+.lx-attributes-panel {
+  background: #fafafa; border: 1px solid #90caf9; border-radius: 6px;
+  padding: 8px 10px; margin-top: 8px; font-size: 13px;
+}
+.lx-current-highlight {
+  border-bottom: 4px solid #ff4444;
+  font-weight: bold;
+  animation: lx-pulse 1s ease-in-out;
+}
+@keyframes lx-pulse {
+  0% { text-decoration-color: #ff4444; }
+  50% { text-decoration-color: #ff0000; }
+  100% { text-decoration-color: #ff4444; }
+}
+.lx-legend {
+  font-size: 12px; margin-bottom: 8px;
+  padding-bottom: 8px; border-bottom: 1px solid #e0e0e0;
+}
+.lx-label {
+  display: inline-block;
+  padding: 2px 4px;
+  border-radius: 3px;
+  margin-right: 4px;
+  color: #000;
+}
+.lx-attr-key {
+  font-weight: 600;
+  color: #1565c0;
+  letter-spacing: 0.3px;
+}
+.lx-attr-value {
+  font-weight: 400;
+  opacity: 0.85;
+  letter-spacing: 0.2px;
+}
+
+/* Add optimizations with larger fonts and better readability for GIFs */
+.lx-gif-optimized .lx-text-window { font-size: 16px; line-height: 1.8; }
+.lx-gif-optimized .lx-attributes-panel { font-size: 15px; }
+.lx-gif-optimized .lx-current-highlight { text-decoration-thickness: 4px; }
+</style>
+    <div class="lx-animated-wrapper lx-gif-optimized">
+      <div class="lx-attributes-panel">
+        <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">audience_impact</span> <span class="lx-label" style="background-color:#C8E6C9;">opinion_statement</span></div>
+        <div id="attributesContainer"></div>
+      </div>
+      <div class="lx-text-window" id="textWindow">
+        **Page 1**
+&quot;&quot;&quot;
+Review 1 
+Rating: 7/10 
+Title: Fun and adventurous 
+User: careybrandon-41144 — Apr 19, 2021 
+<span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#C8E6C9;">A great Disney princess movie filled with wonderful songs and a great story</span> with <span class="lx-highlight" data-idx="1" style="background-color:#C8E6C9;">a pretty 
+shocking twist</span> that I honestly never saw coming. 
+
+Review 2 
+Rating: 7/10 
+Title: Definitely Understand the Hype 
+User: ryanpersaud-59415 — Nov 14, 2021 
+The Good: 
+Back in 2013, Frozen became a bona fide phenomenon, on the level that I honestly can&#x27;t recall 
+for an animated movie. Watching this 8 years later as a grown adult, I can say that I totally 
+understand why this movie became a phenomenon. 
+Frozen has three big things going for it: <span class="lx-highlight" data-idx="2" style="background-color:#C8E6C9;">the songs, the characters, and the interesting subversion 
+of tropes</span>. I personally don&#x27;t love all of them, but <span class="lx-highlight" data-idx="3" style="background-color:#C8E6C9;">the musical numbers give the movie a bouncy, 
+fun vibe</span>. <span class="lx-highlight" data-idx="4" style="background-color:#C8E6C9;">The characters are lovable and well written</span>; it&#x27;s hard not to like someone here, if not the 
+entire roster. 
+The Bad: 
+<span class="lx-highlight" data-idx="5" style="background-color:#C8E6C9;">I don&#x27;t think the movie does a great job with establishing the central conflict</span>. Despite the first 
+portion of the movie covering it, by the time the story gets into it, <span class="lx-highlight" data-idx="6" style="background-color:#C8E6C9;">I just didn&#x27;t buy the 
+relationship between Anna and Elsa until the halfway mark</span>. <span class="lx-highlight" data-idx="7" style="background-color:#C8E6C9;">Anna&#x27;s motivations are quite poor</span> 
+and while I get that we wouldn&#x27;t have a movie without this conflict, it could have been 
+communicated with more patience. 
+I also felt <span class="lx-highlight" data-idx="8" style="background-color:#C8E6C9;">the environment lacked a real presence</span>; <span class="lx-highlight" data-idx="9" style="background-color:#C8E6C9;">Arendelle gave me “Asgard” vibes—devoid of 
+people, moved on from too fast, not a living world</span>. Maybe it&#x27;s the cold setting, but <span class="lx-highlight" data-idx="10" style="background-color:#C8E6C9;">I prefer 
+fantasy worlds that feel full of life</span>. 
+The Ugly: 
+Yeah, it&#x27;s good. I still think <span class="lx-highlight" data-idx="11" style="background-color:#C8E6C9;">Let It Go is a bit overrated</span> and <span class="lx-highlight" data-idx="12" style="background-color:#C8E6C9;">I&#x27;ve seen better-looking animated 
+films</span>, but <span class="lx-highlight" data-idx="13" style="background-color:#C8E6C9;">Frozen is solid and fun for the whole family</span>. 
+
+Review 3
+&quot;&quot;&quot;
+
+**Page 2**
+&quot;&quot;&quot;
+Rating: 8/10 
+Title: Some People take things WAY too seriously! 
+User: calgal84 — Aug 10, 2014 
+<span class="lx-highlight" data-idx="14" style="background-color:#C8E6C9;">This is really a lovely, enjoyable cartoon</span>. And <span class="lx-highlight" data-idx="15" style="background-color:#C8E6C9;">it&#x27;s just that — a lovely, enjoyable cartoon</span>. <span class="lx-highlight" data-idx="16" style="background-color:#C8E6C9;">A 
+fairy tale moms and dads can feel happy taking their kids to</span>. 
+Is there anything truly remarkable about it? Probably not. Are the songs particularly inventive 
+compared to other Disney movies? No, but they are catchy and pretty. The “In Summer” song is 
+cute, if a bit oddly placed. 
+Some reviewers take this movie way too seriously. Giving it one star because others gave it a 10 
+doesn&#x27;t make you smarter — it just shows you&#x27;re taking a cartoon too seriously. It&#x27;s not real. It’s a 
+fairy tale. 
+I give it an 8. <span class="lx-highlight" data-idx="17" style="background-color:#C8E6C9;">Not perfect, but enjoyable</span>. 
+
+Review 4 
+Rating: 10/10 
+Title: Message of the movie is Love. 
+User: mollyjanssen — Jan 9, 2022 
+Frozen is a <span class="lx-highlight" data-idx="18" style="background-color:#C8E6C9;">heartwarming movie with fantastic animation</span>. <span class="lx-highlight" data-idx="19" style="background-color:#C8E6C9;">Elsa, Anna, and Olaf make it fun to 
+watch</span>. I&#x27;ve seen it several times with my kids and <span class="lx-highlight" data-idx="20" style="background-color:#C8E6C9;">they still think it&#x27;s a good movie</span>. 
+
+Review 5 
+Rating: 10/10 
+Title: Very Unique 
+User: johannafoon — Dec 26, 2021 
+<span class="lx-highlight" data-idx="21" style="background-color:#C8E6C9;">A great film</span> that fits in the category of The Lion King, Aladdin, Tarzan, Snow White, 
+Pocahontas, and The Little Mermaid. <span class="lx-highlight" data-idx="22" style="background-color:#C8E6C9;">I love the Norwegian cultural influences</span>. <span class="lx-highlight" data-idx="23" style="background-color:#C8E6C9;">Fantastic story, 
+beautiful animation — a true Disney classic</span>. 
+
+Review 6
+&quot;&quot;&quot;
+
+**Page 3**
+&quot;&quot;&quot;
+Rating: 7/10 
+Title: I like it, but apparently not as much as most folks. 
+User: planktonrules — Jan 9, 2014 
+(The review contains only the title; no additional text.) 
+
+Review 7 
+Rating: 10/10 
+Title: The directorial 
+User: ildarabsalamov — Jan 19, 2022 
+The directorial duo <span class="lx-highlight" data-idx="24" style="background-color:#C8E6C9;">managed to make another Disney animated film into an event</span>. <span class="lx-highlight" data-idx="25" style="background-color:#C8E6C9;">They balanced 
+responsibilities well, developing a simple story through characters, music, humor, and the 
+emotional signature that defines Disney projects</span>. 
+The script—loosely based on Andersen&#x27;s fairy tale—<span class="lx-highlight" data-idx="26" style="background-color:#C8E6C9;">quickly transforms into something unique</span>. 
+<span class="lx-highlight" data-idx="27" style="background-color:#C8E6C9;">The writers keep only the dramatic foundation and rebuild everything else</span>. <span class="lx-highlight" data-idx="28" style="background-color:#C8E6C9;">Disney’s strength has 
+always been less about plots and more about crafting characters and balancing sad and funny 
+moments</span>. 
+
+Review 8 
+Title: Most Overrated Movie of 2013 
+User: ruth-music-1234 — Mar 31, 2014 
+(No rating provided; only the title and user info.) 
+
+Review 9 
+Rating: 6/10 
+Title: A story that&#x27;s all slush. 
+User: The_Film_Cricket — Dec 12, 2013 
+(Only the title is provided; the review contains no additional text.) 
+
+Review 10
+&quot;&quot;&quot;
+
+**Page 4**
+&quot;&quot;&quot;
+Rating: 10/10 
+Title: 10/10 
+User: madllen — Jul 27, 2021 
+Most Disney movies follow a similar storyline, but this one <span class="lx-highlight" data-idx="29" style="background-color:#C8E6C9;">feels more mature and complex</span>. <span class="lx-highlight" data-idx="30" style="background-color:#C8E6C9;">It’s 
+about self-love and self-discovery</span>. <span class="lx-highlight" data-idx="31" style="background-color:#D2E3FC;">It made me shed a tear</span>, and <span class="lx-highlight" data-idx="32" style="background-color:#D2E3FC;">I rewatch it every year with the 
+same chills</span>. 
+
+Review 11 
+Rating: 6/10 
+Title: I like warm hugs too 
+User: utgard14 — Jan 20, 2014 
+Story of two princesses: Elsa, who becomes queen but struggles with her snow powers, and 
+Anna, the goofy, lovable younger sister. After an argument in which Elsa reveals her powers 
+publicly, she runs away. Anna sets out to bring her back. 
+<span class="lx-highlight" data-idx="33" style="background-color:#C8E6C9;">Frozen is good but not great</span>. It’s very loosely adapted from “The Snow Queen.” <span class="lx-highlight" data-idx="34" style="background-color:#C8E6C9;">The sisterly 
+bond is touching but not deeply developed</span>. Most of the middle focuses on other characters. 
+<span class="lx-highlight" data-idx="35" style="background-color:#C8E6C9;">It reuses familiar Disney tropes and rom-com clichés, though effectively</span>. <span class="lx-highlight" data-idx="36" style="background-color:#C8E6C9;">Olaf, the snowman, is 
+entertaining but feels tacked on</span>. <span class="lx-highlight" data-idx="37" style="background-color:#C8E6C9;">The music is “OK” but a bit too Broadway</span>. <span class="lx-highlight" data-idx="38" style="background-color:#C8E6C9;">The animation and 
+voice work are solid</span>. <span class="lx-highlight" data-idx="39" style="background-color:#D2E3FC;">Kids and young women may enjoy it more</span>.
+&quot;&quot;&quot;
+
+
+      </div>
+      <div class="lx-controls">
+        <div class="lx-button-row">
+          <button class="lx-control-btn" onclick="playPause()">▶️ Play</button>
+          <button class="lx-control-btn" onclick="prevExtraction()">⏮ Previous</button>
+          <button class="lx-control-btn" onclick="nextExtraction()">⏭ Next</button>
+        </div>
+        <div class="lx-progress-container">
+          <input type="range" id="progressSlider" class="lx-progress-slider"
+                 min="0" max="39" value="0"
+                 onchange="jumpToExtraction(this.value)">
+        </div>
+        <div class="lx-status-text">
+          Entity <span id="entityInfo">1/40</span> |
+          Pos <span id="posInfo">[108-183]</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        const extractions = [{"index": 0, "class": "opinion_statement", "text": "A great Disney princess movie filled with wonderful songs and a great story", "color": "#C8E6C9", "startPos": 108, "endPos": 183, "beforeText": "**Page 1**\n&quot;&quot;&quot;\nReview 1 \nRating: 7/10 \nTitle: Fun and adventurous \nUser: careybrandon-41144 \u2014 Apr 19, 2021 \n", "extractionText": "A great Disney princess movie filled with wonderful songs and a great story", "afterText": " with a pretty \nshocking twist that I honestly never saw coming. \n \nReview 2 \nRating: 7/10 \nTitle: Definitely Understand the Hype \nUser: ryanpersaud-5", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The movie</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">great Disney princess movie filled with wonderful songs and a great story</span>}</div>"}, {"index": 1, "class": "opinion_statement", "text": "a pretty shocking twist", "color": "#C8E6C9", "startPos": 189, "endPos": 213, "beforeText": "Title: Fun and adventurous \nUser: careybrandon-41144 \u2014 Apr 19, 2021 \nA great Disney princess movie filled with wonderful songs and a great story with ", "extractionText": "a pretty \nshocking twist", "afterText": " that I honestly never saw coming. \n \nReview 2 \nRating: 7/10 \nTitle: Definitely Understand the Hype \nUser: ryanpersaud-59415 \u2014 Nov 14, 2021 \nThe Good:", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The twist</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">pretty shocking</span>}</div>"}, {"index": 2, "class": "opinion_statement", "text": "the songs, the characters, and the interesting subversion of tropes", "color": "#C8E6C9", "startPos": 645, "endPos": 713, "beforeText": "s 8 years later as a grown adult, I can say that I totally \nunderstand why this movie became a phenomenon. \nFrozen has three big things going for it: ", "extractionText": "the songs, the characters, and the interesting subversion \nof tropes", "afterText": ". I personally don&#x27;t love all of them, but the musical numbers give the movie a bouncy, \nfun vibe. The characters are lovable and well written; it&#x27;s h", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">Frozen</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">interesting subversion of tropes</span>}</div>"}, {"index": 3, "class": "opinion_statement", "text": "the musical numbers give the movie a bouncy, fun vibe", "color": "#C8E6C9", "startPos": 756, "endPos": 810, "beforeText": "zen has three big things going for it: the songs, the characters, and the interesting subversion \nof tropes. I personally don&#x27;t love all of them, but ", "extractionText": "the musical numbers give the movie a bouncy, \nfun vibe", "afterText": ". The characters are lovable and well written; it&#x27;s hard not to like someone here, if not the \nentire roster. \nThe Bad: \nI don&#x27;t think the movie does ", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The musical numbers</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">bouncy, fun vibe</span>}</div>"}, {"index": 4, "class": "opinion_statement", "text": "The characters are lovable and well written", "color": "#C8E6C9", "startPos": 812, "endPos": 855, "beforeText": "aracters, and the interesting subversion \nof tropes. I personally don&#x27;t love all of them, but the musical numbers give the movie a bouncy, \nfun vibe. ", "extractionText": "The characters are lovable and well written", "afterText": "; it&#x27;s hard not to like someone here, if not the \nentire roster. \nThe Bad: \nI don&#x27;t think the movie does a great job with establishing the central con", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The characters</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">lovable and well written</span>}</div>"}, {"index": 5, "class": "opinion_statement", "text": "I don't think the movie does a great job with establishing the central conflict", "color": "#C8E6C9", "startPos": 931, "endPos": 1010, "beforeText": "the movie a bouncy, \nfun vibe. The characters are lovable and well written; it&#x27;s hard not to like someone here, if not the \nentire roster. \nThe Bad: \n", "extractionText": "I don&#x27;t think the movie does a great job with establishing the central conflict", "afterText": ". Despite the first \nportion of the movie covering it, by the time the story gets into it, I just didn&#x27;t buy the \nrelationship between Anna and Elsa u", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The central conflict</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Negative</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">does not do a great job with establishing</span>}</div>"}, {"index": 6, "class": "opinion_statement", "text": "I just didn't buy the relationship between Anna and Elsa until the halfway mark", "color": "#C8E6C9", "startPos": 1101, "endPos": 1181, "beforeText": "vie does a great job with establishing the central conflict. Despite the first \nportion of the movie covering it, by the time the story gets into it, ", "extractionText": "I just didn&#x27;t buy the \nrelationship between Anna and Elsa until the halfway mark", "afterText": ". Anna&#x27;s motivations are quite poor \nand while I get that we wouldn&#x27;t have a movie without this conflict, it could have been \ncommunicated with more p", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The relationship between Anna and Elsa</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Negative</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">didn&#x27;t buy</span>}</div>"}, {"index": 7, "class": "opinion_statement", "text": "Anna's motivations are quite poor", "color": "#C8E6C9", "startPos": 1183, "endPos": 1216, "beforeText": "rtion of the movie covering it, by the time the story gets into it, I just didn&#x27;t buy the \nrelationship between Anna and Elsa until the halfway mark. ", "extractionText": "Anna&#x27;s motivations are quite poor", "afterText": " \nand while I get that we wouldn&#x27;t have a movie without this conflict, it could have been \ncommunicated with more patience. \nI also felt the environme", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">Anna&#x27;s motivations</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Negative</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">quite poor</span>}</div>"}, {"index": 8, "class": "opinion_statement", "text": "the environment lacked a real presence", "color": "#C8E6C9", "startPos": 1353, "endPos": 1391, "beforeText": "re quite poor \nand while I get that we wouldn&#x27;t have a movie without this conflict, it could have been \ncommunicated with more patience. \nI also felt ", "extractionText": "the environment lacked a real presence", "afterText": "; Arendelle gave me \u201cAsgard\u201d vibes\u2014devoid of \npeople, moved on from too fast, not a living world. Maybe it&#x27;s the cold setting, but I prefer \nfantasy w", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The environment</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Negative</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">lacked a real presence</span>}</div>"}, {"index": 9, "class": "opinion_statement", "text": "Arendelle gave me \u201cAsgard\u201d vibes\u2014devoid of people, moved on from too fast, not a living world", "color": "#C8E6C9", "startPos": 1393, "endPos": 1487, "beforeText": "ouldn&#x27;t have a movie without this conflict, it could have been \ncommunicated with more patience. \nI also felt the environment lacked a real presence; ", "extractionText": "Arendelle gave me \u201cAsgard\u201d vibes\u2014devoid of \npeople, moved on from too fast, not a living world", "afterText": ". Maybe it&#x27;s the cold setting, but I prefer \nfantasy worlds that feel full of life. \nThe Ugly: \nYeah, it&#x27;s good. I still think Let It Go is a bit over", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">Arendelle</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Negative</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">devoid of people, moved on from too fast, not a living world</span>}</div>"}, {"index": 10, "class": "opinion_statement", "text": "I prefer fantasy worlds that feel full of life", "color": "#C8E6C9", "startPos": 1522, "endPos": 1569, "beforeText": "ked a real presence; Arendelle gave me \u201cAsgard\u201d vibes\u2014devoid of \npeople, moved on from too fast, not a living world. Maybe it&#x27;s the cold setting, but ", "extractionText": "I prefer \nfantasy worlds that feel full of life", "afterText": ". \nThe Ugly: \nYeah, it&#x27;s good. I still think Let It Go is a bit overrated and I&#x27;ve seen better-looking animated \nfilms, but Frozen is solid and fun fo", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">Fantasy worlds</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">feel full of life</span>}</div>"}, {"index": 11, "class": "opinion_statement", "text": "Let It Go is a bit overrated", "color": "#C8E6C9", "startPos": 1614, "endPos": 1642, "beforeText": "ast, not a living world. Maybe it&#x27;s the cold setting, but I prefer \nfantasy worlds that feel full of life. \nThe Ugly: \nYeah, it&#x27;s good. I still think ", "extractionText": "Let It Go is a bit overrated", "afterText": " and I&#x27;ve seen better-looking animated \nfilms, but Frozen is solid and fun for the whole family. \n \nReview 3\n&quot;&quot;&quot;\n\n**Page 2**\n&quot;&quot;&quot;\nRating: 8/10 \nTitle: ", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">Let It Go</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Negative</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">a bit overrated</span>}</div>"}, {"index": 12, "class": "opinion_statement", "text": "I've seen better-looking animated films", "color": "#C8E6C9", "startPos": 1647, "endPos": 1687, "beforeText": "&#x27;s the cold setting, but I prefer \nfantasy worlds that feel full of life. \nThe Ugly: \nYeah, it&#x27;s good. I still think Let It Go is a bit overrated and ", "extractionText": "I&#x27;ve seen better-looking animated \nfilms", "afterText": ", but Frozen is solid and fun for the whole family. \n \nReview 3\n&quot;&quot;&quot;\n\n**Page 2**\n&quot;&quot;&quot;\nRating: 8/10 \nTitle: Some People take things WAY too seriously! \nU", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">Animated films</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Negative</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">better-looking</span>}</div>"}, {"index": 13, "class": "opinion_statement", "text": "Frozen is solid and fun for the whole family", "color": "#C8E6C9", "startPos": 1693, "endPos": 1737, "beforeText": "lds that feel full of life. \nThe Ugly: \nYeah, it&#x27;s good. I still think Let It Go is a bit overrated and I&#x27;ve seen better-looking animated \nfilms, but ", "extractionText": "Frozen is solid and fun for the whole family", "afterText": ". \n \nReview 3\n&quot;&quot;&quot;\n\n**Page 2**\n&quot;&quot;&quot;\nRating: 8/10 \nTitle: Some People take things WAY too seriously! \nUser: calgal84 \u2014 Aug 10, 2014 \nThis is really a lov", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">Frozen</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">solid and fun</span>}</div>"}, {"index": 14, "class": "opinion_statement", "text": "This is really a lovely, enjoyable cartoon", "color": "#C8E6C9", "startPos": 1867, "endPos": 1909, "beforeText": "for the whole family. \n \nReview 3\n&quot;&quot;&quot;\n\n**Page 2**\n&quot;&quot;&quot;\nRating: 8/10 \nTitle: Some People take things WAY too seriously! \nUser: calgal84 \u2014 Aug 10, 2014 \n", "extractionText": "This is really a lovely, enjoyable cartoon", "afterText": ". And it&#x27;s just that \u2014 a lovely, enjoyable cartoon. A \nfairy tale moms and dads can feel happy taking their kids to. \nIs there anything truly remarkab", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">This cartoon</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">lovely, enjoyable</span>}</div>"}, {"index": 15, "class": "opinion_statement", "text": "it's just that \u2014 a lovely, enjoyable cartoon", "color": "#C8E6C9", "startPos": 1915, "endPos": 1959, "beforeText": "*\n&quot;&quot;&quot;\nRating: 8/10 \nTitle: Some People take things WAY too seriously! \nUser: calgal84 \u2014 Aug 10, 2014 \nThis is really a lovely, enjoyable cartoon. And ", "extractionText": "it&#x27;s just that \u2014 a lovely, enjoyable cartoon", "afterText": ". A \nfairy tale moms and dads can feel happy taking their kids to. \nIs there anything truly remarkable about it? Probably not. Are the songs particula", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">It</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">lovely, enjoyable</span>}</div>"}, {"index": 16, "class": "opinion_statement", "text": "a fairy tale moms and dads can feel happy taking their kids to", "color": "#C8E6C9", "startPos": 1961, "endPos": 2024, "beforeText": "ings WAY too seriously! \nUser: calgal84 \u2014 Aug 10, 2014 \nThis is really a lovely, enjoyable cartoon. And it&#x27;s just that \u2014 a lovely, enjoyable cartoon. ", "extractionText": "A \nfairy tale moms and dads can feel happy taking their kids to", "afterText": ". \nIs there anything truly remarkable about it? Probably not. Are the songs particularly inventive \ncompared to other Disney movies? No, but they are ", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The film</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">happy taking their kids to</span>}</div>"}, {"index": 17, "class": "opinion_statement", "text": "Not perfect, but enjoyable", "color": "#C8E6C9", "startPos": 2478, "endPos": 2504, "beforeText": "ers gave it a 10 \ndoesn&#x27;t make you smarter \u2014 it just shows you&#x27;re taking a cartoon too seriously. It&#x27;s not real. It\u2019s a \nfairy tale. \nI give it an 8. ", "extractionText": "Not perfect, but enjoyable", "afterText": ". \n \nReview 4 \nRating: 10/10 \nTitle: Message of the movie is Love. \nUser: mollyjanssen \u2014 Jan 9, 2022 \nFrozen is a heartwarming movie with fantastic an", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The film</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">enjoyable</span>}</div>"}, {"index": 18, "class": "opinion_statement", "text": "heartwarming movie with fantastic animation", "color": "#C8E6C9", "startPos": 2618, "endPos": 2661, "beforeText": " it an 8. Not perfect, but enjoyable. \n \nReview 4 \nRating: 10/10 \nTitle: Message of the movie is Love. \nUser: mollyjanssen \u2014 Jan 9, 2022 \nFrozen is a ", "extractionText": "heartwarming movie with fantastic animation", "afterText": ". Elsa, Anna, and Olaf make it fun to \nwatch. I&#x27;ve seen it several times with my kids and they still think it&#x27;s a good movie. \n \nReview 5 \nRating: 10/", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">Frozen</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">heartwarming movie with fantastic animation</span>}</div>"}, {"index": 19, "class": "opinion_statement", "text": "Elsa, Anna, and Olaf make it fun to watch", "color": "#C8E6C9", "startPos": 2663, "endPos": 2705, "beforeText": "ew 4 \nRating: 10/10 \nTitle: Message of the movie is Love. \nUser: mollyjanssen \u2014 Jan 9, 2022 \nFrozen is a heartwarming movie with fantastic animation. ", "extractionText": "Elsa, Anna, and Olaf make it fun to \nwatch", "afterText": ". I&#x27;ve seen it several times with my kids and they still think it&#x27;s a good movie. \n \nReview 5 \nRating: 10/10 \nTitle: Very Unique \nUser: johannafoon \u2014 ", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">Elsa, Anna, and Olaf</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">fun to watch</span>}</div>"}, {"index": 20, "class": "opinion_statement", "text": "they still think it's a good movie", "color": "#C8E6C9", "startPos": 2751, "endPos": 2785, "beforeText": "022 \nFrozen is a heartwarming movie with fantastic animation. Elsa, Anna, and Olaf make it fun to \nwatch. I&#x27;ve seen it several times with my kids and ", "extractionText": "they still think it&#x27;s a good movie", "afterText": ". \n \nReview 5 \nRating: 10/10 \nTitle: Very Unique \nUser: johannafoon \u2014 Dec 26, 2021 \nA great film that fits in the category of The Lion King, Aladdin, ", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">Frozen</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">good movie</span>}</div>"}, {"index": 21, "class": "opinion_statement", "text": "A great film", "color": "#C8E6C9", "startPos": 2869, "endPos": 2881, "beforeText": " several times with my kids and they still think it&#x27;s a good movie. \n \nReview 5 \nRating: 10/10 \nTitle: Very Unique \nUser: johannafoon \u2014 Dec 26, 2021 \n", "extractionText": "A great film", "afterText": " that fits in the category of The Lion King, Aladdin, Tarzan, Snow White, \nPocahontas, and The Little Mermaid. I love the Norwegian cultural influence", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The film</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">great film</span>}</div>"}, {"index": 22, "class": "opinion_statement", "text": "I love the Norwegian cultural influences", "color": "#C8E6C9", "startPos": 2992, "endPos": 3032, "beforeText": "ohannafoon \u2014 Dec 26, 2021 \nA great film that fits in the category of The Lion King, Aladdin, Tarzan, Snow White, \nPocahontas, and The Little Mermaid. ", "extractionText": "I love the Norwegian cultural influences", "afterText": ". Fantastic story, \nbeautiful animation \u2014 a true Disney classic. \n \nReview 6\n&quot;&quot;&quot;\n\n**Page 3**\n&quot;&quot;&quot;\nRating: 7/10 \nTitle: I like it, but apparently not as", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The Norwegian cultural influences</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">love</span>}</div>"}, {"index": 23, "class": "opinion_statement", "text": "Fantastic story, beautiful animation \u2014 a true Disney classic", "color": "#C8E6C9", "startPos": 3034, "endPos": 3095, "beforeText": "at fits in the category of The Lion King, Aladdin, Tarzan, Snow White, \nPocahontas, and The Little Mermaid. I love the Norwegian cultural influences. ", "extractionText": "Fantastic story, \nbeautiful animation \u2014 a true Disney classic", "afterText": ". \n \nReview 6\n&quot;&quot;&quot;\n\n**Page 3**\n&quot;&quot;&quot;\nRating: 7/10 \nTitle: I like it, but apparently not as much as most folks. \nUser: planktonrules \u2014 Jan 9, 2014 \n(The r", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The film</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">Fantastic story, beautiful animation \u2014 a true Disney classic</span>}</div>"}, {"index": 24, "class": "opinion_statement", "text": "managed to make another Disney animated film into an event", "color": "#C8E6C9", "startPos": 3406, "endPos": 3464, "beforeText": "ins only the title; no additional text.) \n \nReview 7 \nRating: 10/10 \nTitle: The directorial \nUser: ildarabsalamov \u2014 Jan 19, 2022 \nThe directorial duo ", "extractionText": "managed to make another Disney animated film into an event", "afterText": ". They balanced \nresponsibilities well, developing a simple story through characters, music, humor, and the \nemotional signature that defines Disney p", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The directorial duo</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">make another Disney animated film into an event</span>}</div>"}, {"index": 25, "class": "opinion_statement", "text": "They balanced responsibilities well, developing a simple story through characters, music, humor, and the emotional signature that defines Disney projects", "color": "#C8E6C9", "startPos": 3466, "endPos": 3621, "beforeText": ": 10/10 \nTitle: The directorial \nUser: ildarabsalamov \u2014 Jan 19, 2022 \nThe directorial duo managed to make another Disney animated film into an event. ", "extractionText": "They balanced \nresponsibilities well, developing a simple story through characters, music, humor, and the \nemotional signature that defines Disney projects", "afterText": ". \nThe script\u2014loosely based on Andersen&#x27;s fairy tale\u2014quickly transforms into something unique. \nThe writers keep only the dramatic foundation and rebu", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The directorial duo</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">balanced responsibilities well</span>}</div>"}, {"index": 26, "class": "opinion_statement", "text": "quickly transforms into something unique", "color": "#C8E6C9", "startPos": 3674, "endPos": 3714, "beforeText": "story through characters, music, humor, and the \nemotional signature that defines Disney projects. \nThe script\u2014loosely based on Andersen&#x27;s fairy tale\u2014", "extractionText": "quickly transforms into something unique", "afterText": ". \nThe writers keep only the dramatic foundation and rebuild everything else. Disney\u2019s strength has \nalways been less about plots and more about craft", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The script</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">transforms into something unique</span>}</div>"}, {"index": 27, "class": "opinion_statement", "text": "The writers keep only the dramatic foundation and rebuild everything else", "color": "#C8E6C9", "startPos": 3717, "endPos": 3790, "beforeText": " the \nemotional signature that defines Disney projects. \nThe script\u2014loosely based on Andersen&#x27;s fairy tale\u2014quickly transforms into something unique. \n", "extractionText": "The writers keep only the dramatic foundation and rebuild everything else", "afterText": ". Disney\u2019s strength has \nalways been less about plots and more about crafting characters and balancing sad and funny \nmoments. \n \nReview 8 \nTitle: Mos", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The writers</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">keep only the dramatic foundation and rebuild everything else</span>}</div>"}, {"index": 28, "class": "opinion_statement", "text": "Disney\u2019s strength has always been less about plots and more about crafting characters and balancing sad and funny moments", "color": "#C8E6C9", "startPos": 3792, "endPos": 3915, "beforeText": " based on Andersen&#x27;s fairy tale\u2014quickly transforms into something unique. \nThe writers keep only the dramatic foundation and rebuild everything else. ", "extractionText": "Disney\u2019s strength has \nalways been less about plots and more about crafting characters and balancing sad and funny \nmoments", "afterText": ". \n \nReview 8 \nTitle: Most Overrated Movie of 2013 \nUser: ruth-music-1234 \u2014 Mar 31, 2014 \n(No rating provided; only the title and user info.) \n \nRevie", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">Disney\u2019s strength</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">crafting characters and balancing sad and funny moments</span>}</div>"}, {"index": 29, "class": "opinion_statement", "text": "feels more mature and complex", "color": "#C8E6C9", "startPos": 4379, "endPos": 4408, "beforeText": "\nReview 10\n&quot;&quot;&quot;\n\n**Page 4**\n&quot;&quot;&quot;\nRating: 10/10 \nTitle: 10/10 \nUser: madllen \u2014 Jul 27, 2021 \nMost Disney movies follow a similar storyline, but this one ", "extractionText": "feels more mature and complex", "afterText": ". It\u2019s \nabout self-love and self-discovery. It made me shed a tear, and I rewatch it every year with the \nsame chills. \n \nReview 11 \nRating: 6/10 \nTit", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">this one</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">more mature and complex</span>}</div>"}, {"index": 30, "class": "opinion_statement", "text": "It\u2019s about self-love and self-discovery", "color": "#C8E6C9", "startPos": 4410, "endPos": 4450, "beforeText": "Rating: 10/10 \nTitle: 10/10 \nUser: madllen \u2014 Jul 27, 2021 \nMost Disney movies follow a similar storyline, but this one feels more mature and complex. ", "extractionText": "It\u2019s \nabout self-love and self-discovery", "afterText": ". It made me shed a tear, and I rewatch it every year with the \nsame chills. \n \nReview 11 \nRating: 6/10 \nTitle: I like warm hugs too \nUser: utgard14 \u2014", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">It</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">self-love and self-discovery</span>}</div>"}, {"index": 31, "class": "audience_impact", "text": "It made me shed a tear", "color": "#D2E3FC", "startPos": 4452, "endPos": 4474, "beforeText": " \u2014 Jul 27, 2021 \nMost Disney movies follow a similar storyline, but this one feels more mature and complex. It\u2019s \nabout self-love and self-discovery. ", "extractionText": "It made me shed a tear", "afterText": ", and I rewatch it every year with the \nsame chills. \n \nReview 11 \nRating: 6/10 \nTitle: I like warm hugs too \nUser: utgard14 \u2014 Jan 20, 2014 \nStory of ", "attributesHtml": "<div><strong>class:</strong> audience_impact</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">emotion_evoked</span>: <span class=\"lx-attr-value\">sadness</span>, <span class=\"lx-attr-key\">causal_element</span>: <span class=\"lx-attr-value\">The movie</span>, <span class=\"lx-attr-key\">target_audience</span>: <span class=\"lx-attr-value\">the reviewer</span>}</div>"}, {"index": 32, "class": "audience_impact", "text": "I rewatch it every year with the same chills", "color": "#D2E3FC", "startPos": 4480, "endPos": 4525, "beforeText": " movies follow a similar storyline, but this one feels more mature and complex. It\u2019s \nabout self-love and self-discovery. It made me shed a tear, and ", "extractionText": "I rewatch it every year with the \nsame chills", "afterText": ". \n \nReview 11 \nRating: 6/10 \nTitle: I like warm hugs too \nUser: utgard14 \u2014 Jan 20, 2014 \nStory of two princesses: Elsa, who becomes queen but struggl", "attributesHtml": "<div><strong>class:</strong> audience_impact</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">emotion_evoked</span>: <span class=\"lx-attr-value\">excitement, nostalgia</span>, <span class=\"lx-attr-key\">causal_element</span>: <span class=\"lx-attr-value\">The movie</span>, <span class=\"lx-attr-key\">target_audience</span>: <span class=\"lx-attr-value\">the reviewer</span>}</div>"}, {"index": 33, "class": "opinion_statement", "text": "Frozen is good but not great", "color": "#C8E6C9", "startPos": 4857, "endPos": 4885, "beforeText": "na, the goofy, lovable younger sister. After an argument in which Elsa reveals her powers \npublicly, she runs away. Anna sets out to bring her back. \n", "extractionText": "Frozen is good but not great", "afterText": ". It\u2019s very loosely adapted from \u201cThe Snow Queen.\u201d The sisterly \nbond is touching but not deeply developed. Most of the middle focuses on other charac", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">Frozen</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Neutral</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">good but not great</span>}</div>"}, {"index": 34, "class": "opinion_statement", "text": "The sisterly bond is touching but not deeply developed", "color": "#C8E6C9", "startPos": 4936, "endPos": 4991, "beforeText": "her powers \npublicly, she runs away. Anna sets out to bring her back. \nFrozen is good but not great. It\u2019s very loosely adapted from \u201cThe Snow Queen.\u201d ", "extractionText": "The sisterly \nbond is touching but not deeply developed", "afterText": ". Most of the middle focuses on other characters. \nIt reuses familiar Disney tropes and rom-com clich\u00e9s, though effectively. Olaf, the snowman, is \nen", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The sisterly bond</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Neutral</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">touching but not deeply developed</span>}</div>"}, {"index": 35, "class": "opinion_statement", "text": "It reuses familiar Disney tropes and rom-com clich\u00e9s, though effectively", "color": "#C8E6C9", "startPos": 5042, "endPos": 5114, "beforeText": "very loosely adapted from \u201cThe Snow Queen.\u201d The sisterly \nbond is touching but not deeply developed. Most of the middle focuses on other characters. \n", "extractionText": "It reuses familiar Disney tropes and rom-com clich\u00e9s, though effectively", "afterText": ". Olaf, the snowman, is \nentertaining but feels tacked on. The music is \u201cOK\u201d but a bit too Broadway. The animation and \nvoice work are solid. Kids and", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">It</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">reuses familiar Disney tropes and rom-com clich\u00e9s, though effectively</span>}</div>"}, {"index": 36, "class": "opinion_statement", "text": "Olaf, the snowman, is entertaining but feels tacked on", "color": "#C8E6C9", "startPos": 5116, "endPos": 5171, "beforeText": " but not deeply developed. Most of the middle focuses on other characters. \nIt reuses familiar Disney tropes and rom-com clich\u00e9s, though effectively. ", "extractionText": "Olaf, the snowman, is \nentertaining but feels tacked on", "afterText": ". The music is \u201cOK\u201d but a bit too Broadway. The animation and \nvoice work are solid. Kids and young women may enjoy it more.\n&quot;&quot;&quot;\n\n", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">Olaf, the snowman</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Neutral</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">entertaining but feels tacked on</span>}</div>"}, {"index": 37, "class": "opinion_statement", "text": "The music is \u201cOK\u201d but a bit too Broadway", "color": "#C8E6C9", "startPos": 5173, "endPos": 5213, "beforeText": "other characters. \nIt reuses familiar Disney tropes and rom-com clich\u00e9s, though effectively. Olaf, the snowman, is \nentertaining but feels tacked on. ", "extractionText": "The music is \u201cOK\u201d but a bit too Broadway", "afterText": ". The animation and \nvoice work are solid. Kids and young women may enjoy it more.\n&quot;&quot;&quot;\n\n", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The music</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Neutral</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">OK but a bit too Broadway</span>}</div>"}, {"index": 38, "class": "opinion_statement", "text": "The animation and voice work are solid", "color": "#C8E6C9", "startPos": 5215, "endPos": 5254, "beforeText": "ey tropes and rom-com clich\u00e9s, though effectively. Olaf, the snowman, is \nentertaining but feels tacked on. The music is \u201cOK\u201d but a bit too Broadway. ", "extractionText": "The animation and \nvoice work are solid", "afterText": ". Kids and young women may enjoy it more.\n&quot;&quot;&quot;\n\n", "attributesHtml": "<div><strong>class:</strong> opinion_statement</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">subject</span>: <span class=\"lx-attr-value\">The animation and voice work</span>, <span class=\"lx-attr-key\">sentiment</span>: <span class=\"lx-attr-value\">Positive</span>, <span class=\"lx-attr-key\">key_phrase</span>: <span class=\"lx-attr-value\">solid</span>}</div>"}, {"index": 39, "class": "audience_impact", "text": "Kids and young women may enjoy it more", "color": "#D2E3FC", "startPos": 5256, "endPos": 5294, "beforeText": "ectively. Olaf, the snowman, is \nentertaining but feels tacked on. The music is \u201cOK\u201d but a bit too Broadway. The animation and \nvoice work are solid. ", "extractionText": "Kids and young women may enjoy it more", "afterText": ".\n&quot;&quot;&quot;\n\n", "attributesHtml": "<div><strong>class:</strong> audience_impact</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">emotion_evoked</span>: <span class=\"lx-attr-value\">enjoyment</span>, <span class=\"lx-attr-key\">causal_element</span>: <span class=\"lx-attr-value\">The movie</span>, <span class=\"lx-attr-key\">target_audience</span>: <span class=\"lx-attr-value\">Kids and young women</span>}</div>"}];
+        let currentIndex = 0;
+        let isPlaying = false;
+        let animationInterval = null;
+        let animationSpeed = 1.0;
+
+        function updateDisplay() {
+          const extraction = extractions[currentIndex];
+          if (!extraction) return;
+
+          document.getElementById('attributesContainer').innerHTML = extraction.attributesHtml;
+          document.getElementById('entityInfo').textContent = (currentIndex + 1) + '/' + extractions.length;
+          document.getElementById('posInfo').textContent = '[' + extraction.startPos + '-' + extraction.endPos + ']';
+          document.getElementById('progressSlider').value = currentIndex;
+
+          const playBtn = document.querySelector('.lx-control-btn');
+          if (playBtn) playBtn.textContent = isPlaying ? '⏸ Pause' : '▶️ Play';
+
+          const prevHighlight = document.querySelector('.lx-text-window .lx-current-highlight');
+          if (prevHighlight) prevHighlight.classList.remove('lx-current-highlight');
+          const currentSpan = document.querySelector('.lx-text-window span[data-idx="' + currentIndex + '"]');
+          if (currentSpan) {
+            currentSpan.classList.add('lx-current-highlight');
+            currentSpan.scrollIntoView({block: 'center', behavior: 'smooth'});
+          }
+        }
+
+        function nextExtraction() {
+          currentIndex = (currentIndex + 1) % extractions.length;
+          updateDisplay();
+        }
+
+        function prevExtraction() {
+          currentIndex = (currentIndex - 1 + extractions.length) % extractions.length;
+          updateDisplay();
+        }
+
+        function jumpToExtraction(index) {
+          currentIndex = parseInt(index);
+          updateDisplay();
+        }
+
+        function playPause() {
+          if (isPlaying) {
+            clearInterval(animationInterval);
+            isPlaying = false;
+          } else {
+            animationInterval = setInterval(nextExtraction, animationSpeed * 1000);
+            isPlaying = true;
+          }
+          updateDisplay();
+        }
+
+        window.playPause = playPause;
+        window.nextExtraction = nextExtraction;
+        window.prevExtraction = prevExtraction;
+        window.jumpToExtraction = jumpToExtraction;
+
+        updateDisplay();
+      })();
+    </script>
